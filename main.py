@@ -7,7 +7,7 @@ from pygame.constants import PREALLOC
 
 WIDTH = 600
 HEIGHT = 600 
-FPS = 5
+FPS = 15
 pygame.init()
 pygame.mixer.init()  
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -22,7 +22,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((20, 20))
-        self.image.fill((0, 0, 0))
+        self.image.fill((248, 24, 148))
         self.rect = self.image.get_rect()
         self.rect.center = (300, 300)
     def Update(self, x, y):
@@ -47,7 +47,7 @@ class zmeika_body(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((20, 20))
-        self.image.fill((0, 0, 0))
+        self.image.fill((248, 24, 148))
         self.rect = self.image.get_rect()
         self.rect.center = (x, y)
     def Update(self, x, y):
@@ -77,7 +77,7 @@ print(sc)
 
 
 while timer <= len(body)+3:
-    clock.tick(20)
+    clock.tick(FPS)
     player.Update(command[0], command[1])
     screen.fill((255, 255, 255))
     all_sprites.draw(screen)
